@@ -1,5 +1,5 @@
 import dash
-from dash import dcc, html, Input, Output, State
+from dash import  Input, Output, State
 from model_loader import load_model_and_dependencies
 from layout import create_layout
 from graphics import generate_graphs
@@ -10,6 +10,7 @@ model, scaler, categories, model_columns, test_data, metrics = (
 # Inicializar app
 app = dash.Dash(__name__)
 app.title = "Predicción de Vuelos"
+server = app.server  
 
 graphics = generate_graphs(
     test_data=test_data, model=model, feature_names=model_columns
